@@ -1,24 +1,21 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace DoubleTrouble.Scripts {
-	public class Movement : MonoBehaviour {
-		[SerializeField] private Rigidbody2D _body;
+public class Movement : MonoBehaviour {
+	[SerializeField] private Rigidbody2D body;
+	[SerializeField] private float moveSpeed = 1;
 
-		[SerializeField] private InputActionAsset controls;
-		private InputActionMap _inputActionMap;
+	private Vector2 _moveDir = new Vector2();
+	
+	private void Awake() {
+		body = GetComponent<Rigidbody2D>();
+	}
+	
+	public void OnMove(InputAction.CallbackContext ctx) {
+		_moveDir = ctx.ReadValue<Vector2>();
+	}
 
-		private InputAction _moveAction;
-
-		private void Start() {
-			// _inputActionMap = controls.FindActionMap("Player");
-			// _moveAction = _inputActionMap.FindAction("Move");
-			// _moveAction.performed += OnMove;
-		}
-
-		private void OnMove(InputAction.CallbackContext ctx) {
-			ctx.ReadValue<Vector2>();
-		}
+	private void FixedUpdate() {
+		body.velocity = _moveDir * moveSpeed;
 	}
 }
