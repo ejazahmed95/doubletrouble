@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13be83361c0d4e9993c37fbfc62e9468, type: 3}
+  m_Name: DefaultGameInfo
+  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 11400000, guid: 2ece758f614486642b6566a90f31e464, type: 2}
+  - {fileID: 11400000, guid: fd9ff5f77ae28e84fbf511f0b053c00d, type: 2}
+  controlChangeBg: {fileID: 0}
+  characterSprites:
+    list:
+    - Key: 0
+      Value: {fileID: -9095717837082945937, guid: 5cdd6754be1128041aa435b1c5479ae4, type: 3}
+    - Key: 1
+      Value: {fileID: 7482667652216324306, guid: 83f189aa470f6ea429875705fa64c53a, type: 3}
+    keyCollision: 0

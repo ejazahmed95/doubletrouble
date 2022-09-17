@@ -45,3 +45,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: GameEntities
+    uniqueID: 815588291
+    locked: 0
