@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class HeroCharacter : BaseCharacterBehaviour {
+public class HeroCharacter : BaseCharacter {
 
     #region Input Handlers
     

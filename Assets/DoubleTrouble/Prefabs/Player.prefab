@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &475826447014795219
 Transform:
   m_ObjectHideFlags: 0
@@ -330,6 +330,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3410501119279756565}
   - component: {fileID: 3410501119279756564}
+  - component: {fileID: 1144171005444355180}
+  - component: {fileID: 6879647183591639301}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -469,6 +471,55 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 4327423968614830550}
+--- !u!114 &1144171005444355180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410501119279756570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6aff415d1b4f1eb8dd612f18f807b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+    list:
+    - Key: 0
+      Value: {fileID: 3410501119987227277}
+    - Key: 1
+      Value: {fileID: 3410501119460901638}
+    keyCollision: 0
+  playerInput: {fileID: 3410501119279756564}
+  id: 0
+--- !u!114 &6879647183591639301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410501119279756570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916fb05dcc144210b25ebb22a6d28f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 44273e137fc2af54a94a9d241f2f0120, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1144171005444355180}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnControlChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3410501119460901642
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +628,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3410501119460901638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,6 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2de0c13018c48089ba91cc7dd7f982e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionMap: Menu
 --- !u!114 &3410501119460901639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,7 +929,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3410501119987227277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,6 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae97b33a86294bedb37559d9cf869c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionMap: Player
 --- !u!114 &3410501119987227314
 MonoBehaviour:
   m_ObjectHideFlags: 0

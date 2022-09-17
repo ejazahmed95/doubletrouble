@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
 
-public class MenuCharacter : MonoBehaviour {
+public class MenuCharacter : BaseCharacter {
     
 }
