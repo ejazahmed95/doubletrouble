@@ -1,5 +1,4 @@
-﻿using System;
-using EAUnity.Core;
+﻿using EAUnity.Core;
 using EAUnity.Event;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,8 +11,9 @@ public class PlayerController : MonoBehaviour {
     private BaseCharacter _activeCharacter;
 
     private void Start() {
+        Random.InitState((int) System.DateTime.Now.Ticks);
         foreach (var (key, baseCharacter) in characters) {
-            baseCharacter.SetColor(playerInfo.color);
+            baseCharacter.SetPlayerInfo(playerInfo);
         }
     }
     
@@ -31,5 +31,10 @@ public class PlayerController : MonoBehaviour {
         if (changeData.PlayerInfo.id != playerInfo.id) return;
         
         ActivateCharacter(changeData.CharacterType);
+    }
+
+    public void OnItemPicked(PickupItem item) {
+        playerInfo.CurrentAttack++;
+        //itemObjectPool.RemoveItem(item);
     }
 }

@@ -4,11 +4,14 @@
 public class BaseCharacter : MonoBehaviour {
 
     [SerializeField] protected string actionMap;
-    [SerializeField] protected SpriteRenderer characterSprite;
+    [SerializeField] protected SpriteRenderer characterSprite; 
+    protected PlayerInfo playerInfo;
     
     public string ActionMap => actionMap;
     
-    public void SetColor(Color playerColor) {
-        characterSprite.color = playerColor;
+    public void SetPlayerInfo(PlayerInfo pInfo) {
+        playerInfo = pInfo;
+        characterSprite.color = playerInfo.color;
     }
+    
 }
