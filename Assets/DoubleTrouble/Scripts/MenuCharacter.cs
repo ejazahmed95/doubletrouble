@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using EAUnity.Core;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MenuCharacter : BaseCharacter {
@@ -15,7 +16,11 @@ public class MenuCharacter : BaseCharacter {
     #endregion
 
     public void OnTeleport(InputAction.CallbackContext ctx) {
-        if (CanTeleport() == false) return;
+        if(ctx.performed == false) return;
+        if (CanTeleport() == false) {
+            Log.Debug($"{playerInfo.id}: cannot teleport right now ");
+            return;
+        }
         playerInfo.CurrentAttack -= attackPoints;
         var xPos = Random.Range(teleportRangeX.x, teleportRangeX.y);
         var yPos = Random.Range(teleportRangeY.x, teleportRangeY.y);
@@ -23,6 +28,6 @@ public class MenuCharacter : BaseCharacter {
     }
     
     private bool CanTeleport() {
-        return playerInfo.CurrentAttack > attackPoints && (playerDiamond.transform.position - transform.position).magnitude < attackRange;
+        return playerInfo.CurrentAttack >= attackPoints && (playerDiamond.transform.position - transform.position).magnitude < attackRange;
     }
 }

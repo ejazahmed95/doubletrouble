@@ -18,10 +18,10 @@ public class Diamond : MonoBehaviour {
     public void Damage(int amount) {
         health -= amount;
         if (health < 0) {
-            playerInfo.SetHealth(0);
+            playerInfo.Health = 0;
             onDeadCb.Invoke(playerInfo);
             return;
         }
-        playerInfo.SetHealth(health);
+        playerInfo.Health = health;
     }
 }

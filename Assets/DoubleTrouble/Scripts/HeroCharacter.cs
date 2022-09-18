@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using EAUnity.Core;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class HeroCharacter : BaseCharacter {
@@ -12,8 +13,13 @@ public class HeroCharacter : BaseCharacter {
     #endregion
 
     public void OnAttack(InputAction.CallbackContext ctx) {
-        if (CanAttack() == false) return;
+        if(ctx.phase != InputActionPhase.Performed) return;
+        if (CanAttack() == false) {
+            Log.Debug($"{playerInfo.id}: Cannot attack right now");
+            return;
+        }
         enemyDiamond.Damage(1);
+        playerInfo.CurrentAttack -= 1;
     }
     
     private bool CanAttack() {

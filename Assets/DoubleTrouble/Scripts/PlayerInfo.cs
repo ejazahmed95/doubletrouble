@@ -10,11 +10,20 @@ public class PlayerInfo : ObservableSO {
     [SerializeField] private int health;
     [SerializeField] private int maxAttack;
     [SerializeField] private int currentAttack;
+    [SerializeField] private CharacterType activeCharacter;
+    
+    public CharacterType ActiveCharacter {
+        get => activeCharacter;
+        set {
+            activeCharacter = value;
+            Notify();
+        }
+    }
 
     public int CurrentAttack {
         get => currentAttack;
         set {
-            currentAttack = Math.Clamp(value, 0, maxAttack);
+            currentAttack = value;
             Notify();
         }
     }

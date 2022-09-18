@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,7 +21,7 @@ public class PickupSpawner : ObjectPool<PickupItem> {
     
     private IEnumerator ChangeSpawnCount(int newCount) {
         for (int i = initialSpawnCount; i < newCount; i++) {
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(spawnInterval/2);
             _currentMax = i;
         }
     }
@@ -38,9 +39,10 @@ public class PickupSpawner : ObjectPool<PickupItem> {
     private void SpawnNewPoint() {
         _activePickups++;
         float x = Random.Range(xRange.x, xRange.y);
-        float y = Random.Range(xRange.x, xRange.y);
+        float y = Random.Range(yRange.x, yRange.y);
         var pickupItem = GetNewObject();
         pickupItem.gameObject.transform.localPosition = new Vector3(x, y);
+        pickupItem.Init();
     }
 
     private IEnumerator BeginCooldown() {

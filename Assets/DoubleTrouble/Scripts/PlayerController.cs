@@ -7,22 +7,23 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private GenericDictionary<CharacterType, BaseCharacter> characters;
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private PlayerInfo playerInfo;
+    [SerializeField] private ObjectPool<PickupItem> pickupsPool;
 
     private BaseCharacter _activeCharacter;
 
     private void Start() {
         Random.InitState((int) System.DateTime.Now.Ticks);
+        playerInfo.ActiveCharacter = CharacterType.Hero;
         foreach (var (key, baseCharacter) in characters) {
-            baseCharacter.SetPlayerInfo(playerInfo);
-            baseCharacter.Activate(false);
+            baseCharacter.Init(playerInfo, key==playerInfo.ActiveCharacter);
         }
         _activeCharacter = GetCharacter(CharacterType.Hero);
-        ActivateCharacter(CharacterType.Hero);
     }
 
     private void ActivateCharacter(CharacterType type) {
         _activeCharacter.Activate(false);
         _activeCharacter = GetCharacter(type);
+        playerInfo.ActiveCharacter = type;
         _activeCharacter.Activate(true);
         playerInput.SwitchCurrentActionMap(_activeCharacter.ActionMap);
     }
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnItemPicked(PickupItem item) {
-        playerInfo.CurrentAttack++;
-        //itemObjectPool.RemoveItem(item);
+        playerInfo.CurrentAttack += 1;
+        pickupsPool.RemoveObject(item);
     }
 }

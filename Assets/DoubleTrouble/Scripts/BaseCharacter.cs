@@ -11,13 +11,14 @@ public class BaseCharacter : MonoBehaviour {
 
     public string ActionMap => actionMap;
 
-    private void Start() {
+    private void Awake() {
         _lineRenderer = GetComponent<LineRenderer>();
     }
     
-    public void SetPlayerInfo(PlayerInfo pInfo) {
+    public void Init(PlayerInfo pInfo, bool active) {
         playerInfo = pInfo;
         characterSprite.color = playerInfo.color;
+        Activate(active);
     }
 
     public void Activate(bool active) {

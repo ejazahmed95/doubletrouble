@@ -12,20 +12,23 @@ namespace DoubleTrouble.Scripts {
         [SerializeField] private SpriteRenderer bgSpriteRef;
         [SerializeField] private SpriteRenderer spriteRef;
 
+        private GameData _gameData;
+        
         private void Start() {
             if (GameData.Instance == null) {
                 Log.Err("Game Data is NULL");
                 return;
             }
-            bgSpriteRef.color = GameData.Instance.GetPlayer(id).color;
-            spriteRef.sprite = GameData.Instance.gameInfo.characterSprites[characterType];
+            _gameData = GameData.Instance;
+            bgSpriteRef.color = _gameData.GetPlayer(id).color;
+            spriteRef.sprite = _gameData.gameInfo.characterSprites[characterType];
         }
 
         private void OnTriggerEnter2D(Collider2D col) {
             if ((col.CompareTag("Player") || col.CompareTag("Player2")) == false) {
                 return;
             }
-            changeEvent.Raise(new ControlChangeEventData{CharacterType = characterType, PlayerInfo = GameData.Instance.GetPlayer(id)});
+            changeEvent.Raise(new ControlChangeEventData{CharacterType = characterType, PlayerInfo = _gameData.GetPlayer(id)});
         }
         
     }

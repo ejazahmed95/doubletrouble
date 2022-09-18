@@ -332,7 +332,6 @@ GameObject:
   - component: {fileID: 3410501119279756564}
   - component: {fileID: 1144171005444355180}
   - component: {fileID: 6879647183591639301}
-  - component: {fileID: 8383103708850929929}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -400,7 +399,19 @@ MonoBehaviour:
     m_ActionId: 51395cdc-e577-4a26-870f-cf2b88cc00c5
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3410501119987227277}
+        m_TargetAssemblyTypeName: HeroCharacter, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 96999f8b-065d-4e5e-a689-a1a9ac3ea60d
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -460,7 +471,19 @@ MonoBehaviour:
     m_ActionId: c168ddbe-654c-43c3-8983-29d75d367ff5
     m_ActionName: Menu/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3410501119460901638}
+        m_TargetAssemblyTypeName: MenuCharacter, Assembly-CSharp
+        m_MethodName: OnTeleport
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 25f1faa2-a916-42b5-9cf9-008615f76ddc
     m_ActionName: Menu/Fire[/Keyboard/rightCtrl,/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 1
@@ -489,6 +512,7 @@ MonoBehaviour:
     keyCollision: 0
   playerInput: {fileID: 3410501119279756564}
   playerInfo: {fileID: 0}
+  pickupsPool: {fileID: 0}
 --- !u!114 &6879647183591639301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,34 +541,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8383103708850929929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3410501119279756570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 810f325a7dd84a198b46bc4fb2164c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickItemTag: Pickup
-  onItemPicked:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1144171005444355180}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnItemPicked
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &3410501119460901642
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +557,7 @@ GameObject:
   - component: {fileID: 3410501119460901639}
   - component: {fileID: 7378145422142519543}
   - component: {fileID: 7549357262103930169}
+  - component: {fileID: 3281143374185168603}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Player
@@ -700,8 +697,8 @@ MonoBehaviour:
   playerDiamond: {fileID: 0}
   attackRange: 8
   attackPoints: 3
-  teleportRangeX: {x: -20, y: 20}
-  teleportRangeY: {x: -10, y: 10}
+  teleportRangeX: {x: -12, y: 12}
+  teleportRangeY: {x: -7, y: 7}
 --- !u!114 &3410501119460901639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -830,6 +827,34 @@ MonoBehaviour:
   lineCount: 20
   radius: 8
   gap: 0
+--- !u!114 &3281143374185168603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410501119460901642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810f325a7dd84a198b46bc4fb2164c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickItemTag: Pickup
+  onItemPicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1144171005444355180}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnItemPicked
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3410501119496403261
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +1009,7 @@ GameObject:
   - component: {fileID: 3410501119987227276}
   - component: {fileID: 5171672390633417955}
   - component: {fileID: 6917599825702108118}
+  - component: {fileID: 135238513022639982}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -1252,6 +1278,34 @@ MonoBehaviour:
   lineCount: 20
   radius: 2
   gap: 0
+--- !u!114 &135238513022639982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410501119987227319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810f325a7dd84a198b46bc4fb2164c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickItemTag: Pickup
+  onItemPicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1144171005444355180}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnItemPicked
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3410501120105173886
 GameObject:
   m_ObjectHideFlags: 0

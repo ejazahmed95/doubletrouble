@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
+                    "name": "Attack",
                     "type": "Button",
                     "id": "96999f8b-065d-4e5e-a689-a1a9ac3ea60d",
                     "expectedControlType": "Button",
@@ -142,7 +142,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardLeft",
-                    "action": "Fire",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -153,7 +153,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardRight",
-                    "action": "Fire",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -173,7 +173,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
+                    "name": "Teleport",
                     "type": "Button",
                     "id": "25f1faa2-a916-42b5-9cf9-008615f76ddc",
                     "expectedControlType": "Button",
@@ -245,7 +245,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardRight",
-                    "action": "Fire",
+                    "action": "Teleport",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -311,7 +311,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardLeft",
-                    "action": "Fire",
+                    "action": "Teleport",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
