@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48bb531f678e44af97d3ed0cc9f893c4, type: 3}
   m_Name: PlayerOne
   m_EditorClassIdentifier: 
+  observableEvent: {fileID: 11400000, guid: 5501b4b2037311341a57c69edf697003, type: 2}
   id: Player1
   pName: Ejaz
   color: {r: 0.9339623, g: 0.54432935, b: 0.2687344, a: 1}
+  health: 10
+  maxAttack: 0
+  currentAttack: 0

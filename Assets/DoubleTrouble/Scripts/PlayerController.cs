@@ -14,11 +14,16 @@ public class PlayerController : MonoBehaviour {
         Random.InitState((int) System.DateTime.Now.Ticks);
         foreach (var (key, baseCharacter) in characters) {
             baseCharacter.SetPlayerInfo(playerInfo);
+            baseCharacter.Activate(false);
         }
+        _activeCharacter = GetCharacter(CharacterType.Hero);
+        ActivateCharacter(CharacterType.Hero);
     }
-    
-    public void ActivateCharacter(CharacterType type) {
+
+    private void ActivateCharacter(CharacterType type) {
+        _activeCharacter.Activate(false);
         _activeCharacter = GetCharacter(type);
+        _activeCharacter.Activate(true);
         playerInput.SwitchCurrentActionMap(_activeCharacter.ActionMap);
     }
 

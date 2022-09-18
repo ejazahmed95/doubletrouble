@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48bb531f678e44af97d3ed0cc9f893c4, type: 3}
   m_Name: PlayerTwo
   m_EditorClassIdentifier: 
+  observableEvent: {fileID: 11400000, guid: 5501b4b2037311341a57c69edf697003, type: 2}
   id: Player2
   pName: Iro
   color: {r: 0.2705882, g: 0.5983257, b: 0.93333334, a: 1}
+  health: 10
+  maxAttack: 0
+  currentAttack: 0

@@ -1,4 +1,5 @@
 ﻿using System;
+using EAUnity.Core;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +12,7 @@ public class Diamond : MonoBehaviour {
     private void Start() {
         playerInfo.SetHealth(health);
         spriteRef.color = playerInfo.color;
+        Log.Info($"Diamond color update {playerInfo.color}");
     }
 
     public void Damage(int amount) {
