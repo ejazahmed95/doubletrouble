@@ -1,5 +1,6 @@
 ﻿using EAUnity.Core;
 using EAUnity.Event;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +9,13 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private PlayerInfo playerInfo;
     [SerializeField] private ObjectPool<PickupItem> pickupsPool;
+    [SerializeField] private CameraFollow playerCam;
+    [SerializeField] private TMP_Text gameOverText;
+    [SerializeField] private GameObject gameOverObj;
 
+    [SerializeField] private AudioClip switchSfx;
+    [SerializeField] private AudioClip pickupSfx;
+   
     private BaseCharacter _activeCharacter;
 
     private void Start() {
@@ -26,6 +33,8 @@ public class PlayerController : MonoBehaviour {
         playerInfo.ActiveCharacter = type;
         _activeCharacter.Activate(true);
         playerInput.SwitchCurrentActionMap(_activeCharacter.ActionMap);
+        playerCam.target = _activeCharacter.transform;
+        AudioManager.Instance.Play(switchSfx);
     }
 
     private BaseCharacter GetCharacter(CharacterType type) {
@@ -41,6 +50,12 @@ public class PlayerController : MonoBehaviour {
 
     public void OnItemPicked(PickupItem item) {
         playerInfo.CurrentAttack += 1;
+        AudioManager.Instance.Play(pickupSfx);
         pickupsPool.RemoveObject(item);
+    }
+
+    public void OnDeadCb(PlayerInfo info) {
+        gameOverObj.SetActive(true);
+        gameOverText.text = $"{info.id} Lost!";
     }
 }

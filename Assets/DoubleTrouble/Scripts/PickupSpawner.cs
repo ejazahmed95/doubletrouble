@@ -49,4 +49,9 @@ public class PickupSpawner : ObjectPool<PickupItem> {
         yield return new WaitForSeconds(spawnInterval);
         cooldown = false;
     }
+
+    public override void RemoveObject(PickupItem obj) {
+        base.RemoveObject(obj);
+        _activePickups--;
+    }
 }

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/DoubleTrouble/Levels/MenuScene.unity
+    guid: fc63901b1b644444c84d5057d9192459
+  - enabled: 1
     path: Assets/DoubleTrouble/Levels/GameScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

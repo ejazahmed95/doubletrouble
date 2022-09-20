@@ -6,7 +6,8 @@ public class HeroCharacter : BaseCharacter {
 
     [SerializeField] private Diamond enemyDiamond;
     [SerializeField] private float attackRange;
-    
+    [SerializeField] private AudioClip attackSfx;
+
     #region Input Handlers
 
 
@@ -20,6 +21,7 @@ public class HeroCharacter : BaseCharacter {
         }
         enemyDiamond.Damage(1);
         playerInfo.CurrentAttack -= 1;
+        AudioManager.Instance.Play(attackSfx);
     }
     
     private bool CanAttack() {

@@ -17,5 +17,6 @@ MonoBehaviour:
   pName: Ejaz
   color: {r: 0.9339623, g: 0.54432935, b: 0.2687344, a: 1}
   health: 10
-  maxAttack: 0
+  maxAttack: 5
   currentAttack: 0
+  activeCharacter: 1

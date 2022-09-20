@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 475826447014795219}
   - component: {fileID: 4327423968614830550}
   - component: {fileID: 3192603808555127146}
+  - component: {fileID: 7199489616066148322}
   m_Layer: 0
   m_Name: PlayerCam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &475826447014795219
 Transform:
   m_ObjectHideFlags: 0
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2404361004789201060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.69, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54,7 +55,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -83,7 +84,22 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2404361004789201060}
+  m_Enabled: 0
+--- !u!114 &7199489616066148322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2404361004789201060}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52deedc3f71b4e7288b674605ce3574f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 3410501119987227318}
+  smoothSpeed: 0.125
+  offset: {x: 0, y: 0, z: -10}
 --- !u!1 &3410501118915384864
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +529,9 @@ MonoBehaviour:
   playerInput: {fileID: 3410501119279756564}
   playerInfo: {fileID: 0}
   pickupsPool: {fileID: 0}
+  playerCam: {fileID: 7199489616066148322}
+  switchSfx: {fileID: 8300000, guid: 2ebf2421dddc15a45b7fc6ae8197b1c0, type: 3}
+  pickupSfx: {fileID: 8300000, guid: 5ab8fc664ca4d604f820e255005a664a, type: 3}
 --- !u!114 &6879647183591639301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1138,6 +1157,7 @@ MonoBehaviour:
   characterSprite: {fileID: 3410501119987227313}
   enemyDiamond: {fileID: 0}
   attackRange: 2
+  attackSfx: {fileID: 8300000, guid: 87e2452fe2c754248926c9a9ab93a467, type: 3}
 --- !u!114 &3410501119987227314
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
-﻿using System;
-using EAUnity.Core;
+﻿using EAUnity.Core;
 using UnityEngine;
 using UnityEngine.Events;
 

@@ -21,7 +21,7 @@ public class ObjectPool<T>: MonoBehaviour where T: MonoBehaviour {
         return newObj;
     }
 
-    public void RemoveObject(T obj) {
+    public virtual void RemoveObject(T obj) {
         obj.gameObject.SetActive(false);
         _freeObjectPool.Add(obj);
     }

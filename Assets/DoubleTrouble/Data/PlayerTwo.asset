@@ -17,5 +17,6 @@ MonoBehaviour:
   pName: Iro
   color: {r: 0.2705882, g: 0.5983257, b: 0.93333334, a: 1}
   health: 10
-  maxAttack: 0
+  maxAttack: 5
   currentAttack: 0
+  activeCharacter: 0
